@@ -2,8 +2,12 @@ from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 import services as _services
 import schemas as _schemas
+from ui.pin_report import router as rr
+from ui.pin_search import router as sr
 
 app = FastAPI()
+app.include_router(rr)
+app.include_router(sr)
 
 _services.create_database()
 
